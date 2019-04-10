@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+span {
+  cursor: pointer;
+  color: red;
+  float: right;
+}
+
+ul {
+  width: 300px;
+  list-style: none;
+}
