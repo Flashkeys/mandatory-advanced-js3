@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
-//import axios from 'axios';
 
 const Home = () => {
 
@@ -12,7 +11,7 @@ const Home = () => {
     if(token) {
       setLoggedin(true)
     } else {
-      console.log("bad");
+      console.log("Failed to recive token");
       
     }
   },[]);
@@ -34,6 +33,7 @@ const Home = () => {
         {!isloggedin && <Link to="/Register" className="Register">Register</Link>}
         {isloggedin &&<Link to="/Todos" className="Todos">Todos</Link>}
         {isloggedin &&<button type="button" onClick={logout}>Logout</button>}
+        {isloggedin &&<p>{token.email}</p>}
       </header>
     </div>
   );
