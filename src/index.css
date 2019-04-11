@@ -6,14 +6,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: space-around;
+  background-color: #292929;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
 span {
   cursor: pointer;
   color: red;
@@ -23,4 +24,50 @@ span {
 ul {
   width: 300px;
   list-style: none;
+}
+.container {
+  border: 1px solid black;
+}
+header {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px dotted black;
+}
+a {
+  color: orangered;
+  text-decoration: none;
+}
+a:hover{
+  color: white;
+  border-bottom: 1px solid white;
+}
+p, li {
+  color: white;
+}
+.links {
+  margin-left: 20px;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+}
+.email {
+  margin-top: 0px;
+}
+.add-todo {
+  display: flex;
+  justify-content: center;
+}
+.add-todo-input {
+  width: 90%;
+}
+.submit-btn {
+  width:100%;
+}
+h2, h1 {
+  text-align: center;
+  color: white; 
+}
+.email-input, .password-input {
+  width: 98%;
 }

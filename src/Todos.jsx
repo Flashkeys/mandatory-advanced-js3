@@ -7,11 +7,15 @@ import { Link } from 'react-router-dom';
 const Todo = props => {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState([]);
+  const [isloggedin, setLoggedin] = useState(true);
+
   const token = localStorage.getItem("token")
   const tokenn = jwt.decode(localStorage.getItem('token'))
-  
-  console.log(token.email);
-  
+
+  //console.log(token.email);
+  console.log(isloggedin);
+
+
   const getTodos = () => {
     axios.get("http://ec2-13-53-32-89.eu-north-1.compute.amazonaws.com:3000/todos", {
       headers: {
@@ -52,26 +56,36 @@ const Todo = props => {
         console.log(error);
       });
   }
-  
+  const logout = () => {
+    localStorage.removeItem("token");
+    setLoggedin(false)
+  }
 
   useEffect(() => {
     getTodos()
   }, []);
-  
+
   return (
-    <div>
-      <div className="links">
-        <Link to="/" className="home">Home</Link>
-        <p>{tokenn.email}</p>
-      </div>
-      <br></br>
+    <div className="container">
+      <header>
+        <div className="links">
+          <Link to="/" className="home">Home</Link>
+        </div><div className="links">
+          <Link to="/" type="button" onClick={logout}>Logout</Link>
+        </div><div className="links">
+          <p className="email">Welcome : {tokenn.email}</p>
+        </div>
+      </header>
+      <h2>Todo</h2> 
       {todos.length ?
         <ul>
           {todos.map(todo => <li key={todo.id}>{todo.content} <span onClick={() => deleteTodo(todo.id)}>X</span></li>)}
         </ul> :
-        <div>No todos Found</div>}
-      <input type="text" onChange={(e) => setTodo(e.target.value)} />
-      <button onClick={addTodos}>Add todo</button>
+        <div><p>No todos Found</p></div>}
+      <div className="add-todo">
+        <input className="add-todo-input" type="text" onChange={(e) => setTodo(e.target.value)} />
+        <button className="add-todo-btn" onClick={addTodos}>Add todo</button>
+      </div>
     </div>
   )
 }

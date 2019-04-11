@@ -28,16 +28,20 @@ const Register = props => {
 
   return (
     <div className="container">
-      <div className="links">
-        <Link to="/Login" className="login">Login</Link>
-        <Link to="/" className="home">Home</Link>
-      </div>
+      <header>
+        <div className="links">
+          <Link to="/Login" className="login">Login</Link>
+        </div><div className="links">
+          <Link to="/" className="home">Home</Link>
+        </div>
+      </header>
+      <h2>Register</h2> 
       <form onSubmit={submit}>
         <input type="text" value={email} name="a" onChange={(e) => setEmail(e.target.value)} placeholder="email..." />
         <br></br>
         <input type="password" value={password} name="d" onChange={(e) => setPassword(e.target.value)} placeholder="password..." />
         <br></br>
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-btn">Submit</button>
       </form>
     </div>
   )

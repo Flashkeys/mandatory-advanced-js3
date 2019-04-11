@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Login = props => {
   const [email, setEmail] = useState(undefined);
@@ -19,13 +20,21 @@ const Login = props => {
 
   } 
   return (
-    <div>
+    <div className="container">
+    <header>
+        <div className="links">
+          <Link to="/Register" className="register">Register</Link>
+        </div><div className="links">
+          <Link to="/" className="home">Home</Link>
+        </div>
+      </header>
+      <h2>Login</h2> 
       <form onSubmit={submit}>
-        <input placeholder="Email..." name="r" type="text" onChange={(e) => setEmail(e.target.value)} />
+        <input placeholder="Email..." name="r" type="email" className="email-input" onChange={(e) => setEmail(e.target.value)} />
         <br></br>
-        <input placeholder="Password..." name="t" type="password" onChange={(e) => setPassword(e.target.value)} />
+        <input placeholder="Password..." name="t" type="password" className="password-input" onChange={(e) => setPassword(e.target.value)} />
         <br></br>
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit-btn">Submit</button>
       </form>
     </div>
   )

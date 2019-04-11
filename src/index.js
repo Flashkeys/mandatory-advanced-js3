@@ -6,7 +6,7 @@ import Home from './Home.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import Todos from './Todos.jsx';
-//import NotFound from './NotFound.jsx';
+import NotFound from './NotFound.jsx';
 
 ReactDOM.render(
   <Router>
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Route path="/Login" component={Login} />
       <Route path="/Register" component={Register} />
       <Route path="/Todos" component={Todos} />
-      {/* <Route component={NotFound} /> */}
+      <Route component={NotFound} />
     </Switch>
   </Router>
   , document.getElementById('root')); 
